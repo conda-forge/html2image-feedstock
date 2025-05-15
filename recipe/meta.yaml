@@ -1,5 +1,5 @@
 {% set name = "html2image" %}
-{% set version = "2.0.5" %}
+{% set version = "2.0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/html2image-{{ version }}.tar.gz
-  sha256: 8d3cf5ee805647d1fb21442137349b3ab0e352b4cac7e4280e2a0f841466e87c
+  sha256: aa3ca2ce9402cd61c7c3cd1a98ef7a2823d68c1927620a75fbce544ef50beaa4
 
 build:
   entry_points:
@@ -15,7 +15,7 @@ build:
     - html2image = html2image:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -25,7 +25,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<4.0.0
-    - websocket-client 1.*
+    - websocket-client >=1.0,<2.dev0
     - requests
 
 test:
